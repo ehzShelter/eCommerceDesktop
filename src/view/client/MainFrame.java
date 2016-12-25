@@ -15,6 +15,8 @@
 		JLabel heading;
 		JLabel label;
 		JLabel selected;
+		JButton login;
+		JButton register;
 
 		public MainFrame(){
 			this.frame = new JFrame("E-Commerce Desktop Application");
@@ -30,6 +32,10 @@
 			this.productCombo = new JComboBox<String>();
 			this.productCombo.setBounds(20,10,700,200);
 
+			//login/signup buttons
+			this.login = new JButton("Login");
+			this.register = new JButton("Sign Up");
+
 			//add category into combo box
 			this.productCombo.addItem(" -- ");
 			this.productCombo.addItem("Electronics");
@@ -41,6 +47,8 @@
 			this.productCombo.addItem("Music");
 
 			this.categoryPanel.setBounds(150,10,400,200);
+			this.categoryPanel.add(this.login);
+			this.categoryPanel.add(this.register);
 			this.categoryPanel.add(heading);
 			this.categoryPanel.add(label);
 			this.categoryPanel.add(this.productCombo);
