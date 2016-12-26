@@ -44,7 +44,7 @@ public class User {
      public String getStatus(){
         return this.status;
     }
-    
+
     //setters
     public void setFirstname(String firstname) {
         this.firstname = firstname;
@@ -75,5 +75,5 @@ public class User {
 	public String toString(){
 		return this.firstname;
 	}
-    
+
 }
