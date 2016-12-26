@@ -1,28 +1,34 @@
 package view.signInForm;
 
-import javax.swing.JFrame;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
+
+import view.signInForm.SignInDocumentListener;
+
+import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.WindowConstants;
+import javax.swing.event.*;
+import javax.swing.text.*;
 
 public class SignIn extends JFrame {
 
     private JLabel email;
-    private JTextField emailField;
+    public JTextField emailField;
     private JLabel password;
-    private JPasswordField passwordField;
+    public JPasswordField passwordField;
     private JComboBox<String> personSwitchCombo;
-    private JButton signIn;
+    public JButton signIn;
 
     private String title;
 
@@ -34,8 +40,18 @@ public class SignIn extends JFrame {
         this.password = new JLabel();
         this.personSwitchCombo = new JComboBox<>();
         this.signIn = new JButton();
+
+
+        signIn.setEnabled(false);
         this.emailField = new JTextField();
+
+        SignInDocumentListener documentHandler = new SignInDocumentListener(this);
+
+        this.emailField.getDocument().addDocumentListener(documentHandler);
+
         this.passwordField = new JPasswordField();
+
+        this.passwordField.getDocument().addDocumentListener(documentHandler);
 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -51,7 +67,6 @@ public class SignIn extends JFrame {
                 signInActionPerformed(evt);
             }
         });
-
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,8 +115,13 @@ public class SignIn extends JFrame {
         this.pack();
     }
 
-
     private void signInActionPerformed(ActionEvent evt) {
         // TODO add your handling code here:
     }
+
+    private void emailFieldActionPerformed(ActionEvent evt) {
+
+    }
+
+
 }

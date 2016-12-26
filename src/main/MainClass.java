@@ -6,6 +6,7 @@
 
     import view.client.*;
     import view.signUpForm.SignUp;
+    import view.signInForm.SignInDocumentListener;
     import db.DBConnectionProvider;
     import db.DBDataProvider;
 
