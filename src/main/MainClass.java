@@ -12,10 +12,10 @@
     import db.DBConnectionProvider;
     import db.DBDataProvider;
     import db.UserData;
+    import db.LoginData;
 
     public class MainClass{
         public static void main(String args[]){
             MainFrame window = new MainFrame();
-            // SignUp sampleSignUp = new SignUp("Sign Up Form");
         }
     }

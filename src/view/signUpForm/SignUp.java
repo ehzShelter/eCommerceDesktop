@@ -203,6 +203,8 @@ public class SignUp extends JFrame {
         if (result == 1) {
             JOptionPane.showMessageDialog(this, "Person added!",
                     "Person added", JOptionPane.PLAIN_MESSAGE);
+
+                    this.dispose();
         }
         else {
             JOptionPane.showMessageDialog(this, "Person not added!",

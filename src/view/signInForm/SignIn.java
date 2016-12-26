@@ -2,6 +2,7 @@ package view.signInForm;
 
 
 import view.signInForm.SignInDocumentListener;
+import db.LoginData;
 
 import java.awt.event.*;
 import java.awt.event.ActionEvent;
@@ -13,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.*;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JTextField;
@@ -23,6 +25,7 @@ import javax.swing.text.*;
 
 public class SignIn extends JFrame {
 
+    private LoginData loginPerson;
     private JLabel email;
     public JTextField emailField;
     private JLabel password;
@@ -36,6 +39,10 @@ public class SignIn extends JFrame {
 
     public SignIn(String title) {
         super(title);
+
+
+        loginPerson = new LoginData();
+
         this.email = new JLabel();
         this.password = new JLabel();
         this.personSwitchCombo = new JComboBox<>();
@@ -116,10 +123,24 @@ public class SignIn extends JFrame {
     }
 
     private void signInActionPerformed(ActionEvent evt) {
-        // TODO add your handling code here:
+
+        int result = loginPerson.addPerson(emailField.getText(), passwordField.getText(), personSwitchCombo.getSelectedItem().toString());
+
+        if (result == 1) {
+            JOptionPane.showMessageDialog(this, "Person logged in!",
+                    "Person login successfully", JOptionPane.PLAIN_MESSAGE);
+                    this.dispose();
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "unssuccessful login!",
+                    "Error", JOptionPane.PLAIN_MESSAGE);
+
+        }
+
     }
 
     private void emailFieldActionPerformed(ActionEvent evt) {
+        // TODO add your handling code here:
 
     }
 
