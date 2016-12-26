@@ -11,6 +11,7 @@
     import view.signUpForm.SignUpDocumentListener;
     import db.DBConnectionProvider;
     import db.DBDataProvider;
+    import db.UserData;
 
     public class MainClass{
         public static void main(String args[]){
