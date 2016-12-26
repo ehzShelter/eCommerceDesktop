@@ -58,7 +58,7 @@ public class SignUp extends JFrame {
         this.countryNameCombo = new JComboBox<String>();
         this.toggleOne = new JComboBox<String>();
 
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         firstName.setText("First Name");
 

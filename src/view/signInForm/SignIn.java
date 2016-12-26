@@ -37,7 +37,7 @@ public class SignIn extends JFrame {
         this.emailField = new JTextField();
         this.passwordField = new JPasswordField();
 
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         this.email.setText("email");
 
