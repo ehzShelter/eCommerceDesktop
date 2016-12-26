@@ -14,7 +14,6 @@ import java.awt.*;
 
 
 public class MainFrame{
-    JPanel adminPanel;
     JFrame frame;
     JComboBox<String> productCombo;
     JPanel categoryPanel;
@@ -55,7 +54,7 @@ public class MainFrame{
         });
 
         //admin panel entry point (for test now)
-        this.adminBtn = new JButton("ADMIN");
+        this.adminBtn = new JButton("Admin");
         adminBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 adminBtnActionPerformed(evt);
@@ -101,13 +100,7 @@ public class MainFrame{
 
     //method for admin panel entry (for test now)
     private void adminBtnActionPerformed(ActionEvent evt) {
-        this.categoryPanel.setVisible(false);
         AdminPanel admin = new AdminPanel();
-        this.adminPanel = admin.getAdminPanel();
-        this.frame.add(this.adminPanel);
-        this.frame.revalidate();
-        this.frame.repaint();
-
     }
 
 
