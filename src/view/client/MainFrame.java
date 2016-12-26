@@ -1,6 +1,6 @@
 /*
    This is the main frame of the client side application
-   All the
+   product selection will be done here
    */
 
 package view.client;
@@ -10,9 +10,11 @@ import view.signUpForm.SignUp;
 import view.signInForm.SignIn;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.*;
 
 
 public class MainFrame{
+    JPanel adminPanel;
     JFrame frame;
     JComboBox<String> productCombo;
     JPanel categoryPanel;
@@ -21,6 +23,7 @@ public class MainFrame{
     JLabel selected;
     JButton login;
     JButton register;
+    JButton adminBtn;
 
     public MainFrame(){
         this.frame = new JFrame("E-Commerce Desktop Application");
@@ -38,8 +41,6 @@ public class MainFrame{
 
         //login/signup buttons
         this.login = new JButton("Login");
-
-
         login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 loginBtnActionPerformed(evt);
@@ -47,14 +48,19 @@ public class MainFrame{
         });
 
         this.register = new JButton("Sign Up");
-
-
         register.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 registerBtnActionPerformed(evt);
             }
         });
 
+        //admin panel entry point (for test now)
+        this.adminBtn = new JButton("ADMIN");
+        adminBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                adminBtnActionPerformed(evt);
+            }
+        });
 
         //add category into combo box
         this.productCombo.addItem(" -- ");
@@ -67,6 +73,7 @@ public class MainFrame{
         this.productCombo.addItem("Music");
 
         this.categoryPanel.setBounds(150,10,400,200);
+        this.categoryPanel.add(this.adminBtn);
         this.categoryPanel.add(this.login);
         this.categoryPanel.add(this.register);
         this.categoryPanel.add(heading);
@@ -92,8 +99,16 @@ public class MainFrame{
         SignIn sampleSignIn = new SignIn("Sign In Form");
     }
 
-    void setSelectedText(){
+    //method for admin panel entry (for test now)
+    private void adminBtnActionPerformed(ActionEvent evt) {
+        this.categoryPanel.setVisible(false);
+        AdminPanel admin = new AdminPanel();
+        this.adminPanel = admin.getAdminPanel();
+        this.frame.add(this.adminPanel);
+        this.frame.revalidate();
+        this.frame.repaint();
 
     }
+
 
 }
