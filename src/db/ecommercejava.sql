@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 25, 2016 at 11:53 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Generation Time: Dec 26, 2016 at 10:08 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -37,13 +37,13 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `total_items`) VALUES
-(1, 'Electronics', 0),
-(2, 'Books', 0),
-(3, 'Cars', 0),
-(4, 'Fashion', 0),
-(5, 'Sports', 0),
-(6, 'Movies', 0),
-(7, 'Music', 0);
+(1, 'Electronics', 10),
+(2, 'Books', 30),
+(3, 'Cars', 40),
+(4, 'Fashion', 50),
+(5, 'Sports', 60),
+(6, 'Movies', 70),
+(7, 'Music', 90);
 
 -- --------------------------------------------------------
 
@@ -57,6 +57,23 @@ CREATE TABLE `product` (
   `category` varchar(255) NOT NULL,
   `price` double NOT NULL,
   `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `postal_code` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -76,6 +93,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -88,6 +111,11 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
