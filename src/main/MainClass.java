@@ -5,8 +5,10 @@
     package main;
 
     import view.client.*;
-    import view.signUpForm.SignUp;
+    import view.signInForm.SignIn;
     import view.signInForm.SignInDocumentListener;
+    import view.signUpForm.SignUp;
+    import view.signUpForm.SignUpDocumentListener;
     import db.DBConnectionProvider;
     import db.DBDataProvider;
 

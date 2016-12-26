@@ -1,5 +1,8 @@
 package view.signUpForm;
 
+
+import view.signUpForm.SignUpDocumentListener;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -20,21 +23,21 @@ import java.awt.event.ActionListener;
 public class SignUp extends JFrame {
     private String signUpFormTitle;
 
-    private JPasswordField confirmPassField;
+    public JPasswordField confirmPassField;
     private JLabel confirmPassword;
     private JLabel country;
     private JComboBox<String> countryNameCombo;
     private JLabel email;
-    private JTextField emailField;
+    public JTextField emailField;
     private JLabel firstName;
-    private JTextField firstNameField;
+    public JTextField firstNameField;
     private JLabel lastName;
-    private JTextField lastNameField;
-    private JPasswordField passField;
+    public JTextField lastNameField;
+    public JPasswordField passField;
     private JLabel password;
     private JLabel postalCode;
-    private JTextField postalField;
-    private JButton signUpBtn;
+    public JTextField postalField;
+    public JButton signUpBtn;
     private JComboBox<String> toggleOne;
 
     public SignUp() {}
@@ -49,6 +52,7 @@ public class SignUp extends JFrame {
         this.password = new JLabel();
         this.confirmPassword = new JLabel();
         this.signUpBtn = new JButton();
+
         this.firstNameField = new JTextField();
         this.lastNameField = new javax.swing.JTextField();
         this.emailField = new javax.swing.JTextField();
@@ -74,12 +78,15 @@ public class SignUp extends JFrame {
 
         confirmPassword.setText("Confirm Password");
 
+        signUpBtn.setEnabled(false);
+
         signUpBtn.setText("SignUp");
         signUpBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 signUpBtnActionPerformed(evt);
             }
         });
+
 
         confirmPassField.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -93,6 +100,17 @@ public class SignUp extends JFrame {
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
+
+
+        SignUpDocumentListener documentHandler = new SignUpDocumentListener(this);
+
+
+        this.firstNameField.getDocument().addDocumentListener(documentHandler);
+        this.lastNameField.getDocument().addDocumentListener(documentHandler);
+        this.emailField.getDocument().addDocumentListener(documentHandler);
+        this.postalField.getDocument().addDocumentListener(documentHandler);
+        this.passField.getDocument().addDocumentListener(documentHandler);
+        this.confirmPassField.getDocument().addDocumentListener(documentHandler);
 
         // horizontal
         layout.setHorizontalGroup(
@@ -178,4 +196,5 @@ public class SignUp extends JFrame {
     private void confirmPassFieldActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO handling code here:
     }
+
 }
