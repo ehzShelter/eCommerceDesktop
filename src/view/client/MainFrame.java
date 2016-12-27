@@ -2,23 +2,6 @@
    This is the main frame of the client side application
    product selection will be done here
    */
-<<<<<<< HEAD
-   package view.client;
-   import java.util.Vector;
-   import view.admin.AdminPanel;
-   import view.admin.AdminPanelActionListener;
-   import javax.swing.*;
-   import controller.*;
-   import view.signUpForm.SignUp;
-   import view.signInForm.SignIn;
-   import java.awt.event.ActionEvent;
-   import java.awt.event.ActionListener;
-   import java.awt.*;
-
-   import db.DBDataProvider;
-
-   public class MainFrame{
-=======
 package view.client;
 import java.util.Vector;
 import view.admin.AdminPanel;
@@ -38,7 +21,6 @@ import javax.swing.event.ListSelectionListener;
 import db.DBDataProvider;
 
 public class MainFrame{
->>>>>>> b33a26d8da12958bf8a30c762ad8203554b5a662
     public JFrame frame;
     private  JComboBox<String> productCombo;
     private JPanel categoryPanel;
@@ -117,10 +99,8 @@ public class MainFrame{
         this.productPanel.setLayout(null);
 
         this.productTable = DBDataProvider.getAllProduct();
-<<<<<<< HEAD
         this.sp = new JScrollPane(this.productTable);
         this.sp.setBounds(0, 0, 700, 300);
-=======
 
 
         // this is important, otherwise selection will not work
@@ -156,7 +136,6 @@ public class MainFrame{
 
         JScrollPane sp = new JScrollPane(this.productTable);
         sp.setBounds(0, 0, 700, 300);
->>>>>>> b33a26d8da12958bf8a30c762ad8203554b5a662
 
         this.productPanel.add(sp);
         this.frame.add(this.categoryPanel);
@@ -170,7 +149,7 @@ public class MainFrame{
 
 
 
-        
+
     }
 
     private void registerBtnActionPerformed(ActionEvent evt) {
