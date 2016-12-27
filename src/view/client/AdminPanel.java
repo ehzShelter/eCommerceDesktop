@@ -166,7 +166,7 @@ public class AdminPanel extends JFrame {
     	// lastNameField.getText(), emailField.getText(), countryNameCombo.getSelectedItem().toString()
     	String category = this.productCategoryCombo.getSelectedItem().toString();
     	double price = Double.parseDouble(this.productPriceField.getText());
-    	int quantity = Integer.parseInt(this.quantityField.getText());	
+    	int quantity = Integer.parseInt(this.quantityField.getText());
 
     	int result = newProduct.addProduct(name,category,price,quantity);
     	if (result == 1) {
@@ -175,7 +175,7 @@ public class AdminPanel extends JFrame {
                     this.dispose();
         }
         else {
-           JOptionPane.showMessageDialog(this, "Person not added!",
+           JOptionPane.showMessageDialog(this, "Product not added!",
                     "Error", JOptionPane.PLAIN_MESSAGE);
         }
 
