@@ -3,10 +3,9 @@
     the "MainFrame" will be loaded
 */
     package main;
-    import view.client.*;
     import view.client.MainFrame;
-    import view.client.AdminPanel;
-    import view.client.AdminPanelActionListener;
+    import view.admin.AdminPanel;
+    import view.admin.AdminPanelActionListener;
     import view.signInForm.SignIn;
     import view.signInForm.SignInDocumentListener;
     import view.signUpForm.SignUp;

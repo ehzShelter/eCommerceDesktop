@@ -1,8 +1,10 @@
-package view.client;
+package view.admin;
 
+import view.client.MainFrame;
 import db.ProductData;
 
-import view.client.AdminPanelActionListener;
+import view.admin.AdminPanelActionListener;
+
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.text.*;

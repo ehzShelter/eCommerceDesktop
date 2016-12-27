@@ -1,8 +1,10 @@
 /*
    This is the main frame of the client side application
    product selection will be done here
-*/
+   */
 package view.client;
+import view.admin.AdminPanel;
+import view.admin.AdminPanelActionListener;
 import javax.swing.*;
 import controller.*;
 import view.signUpForm.SignUp;
@@ -12,15 +14,15 @@ import java.awt.event.ActionListener;
 import java.awt.*;
 
 public class MainFrame{
-    JFrame frame;
-    JComboBox<String> productCombo;
-    JPanel categoryPanel;
-    JLabel heading;
-    JLabel label;
-    JLabel selected;
-    JButton login;
-    JButton register;
-    JButton adminBtn;
+    public JFrame frame;
+    private  JComboBox<String> productCombo;
+    private JPanel categoryPanel;
+    private JLabel heading;
+    private JLabel label;
+    private JLabel selected;
+    private JButton login;
+    private JButton register;
+    private JButton adminBtn;
 
     public MainFrame(){
         this.frame = new JFrame("E-Commerce Desktop Application");

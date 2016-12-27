@@ -1,9 +1,8 @@
-package view.client;
+package view.admin;
 
-import view.client.AdminPanel;
-
+import view.client.MainFrame;
+import view.admin.AdminPanel;
 import javax.swing.event.*;
-
 import javax.swing.text.*;
 
 public class AdminPanelActionListener implements DocumentListener {
