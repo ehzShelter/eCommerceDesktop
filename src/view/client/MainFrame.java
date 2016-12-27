@@ -2,6 +2,7 @@
    This is the main frame of the client side application
    product selection will be done here
    */
+<<<<<<< HEAD
    package view.client;
    import java.util.Vector;
    import view.admin.AdminPanel;
@@ -17,6 +18,27 @@
    import db.DBDataProvider;
 
    public class MainFrame{
+=======
+package view.client;
+import java.util.Vector;
+import view.admin.AdminPanel;
+import view.admin.AdminPanelActionListener;
+import javax.swing.*;
+import controller.*;
+import view.signUpForm.SignUp;
+import view.signInForm.SignIn;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.*;
+
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import db.DBDataProvider;
+
+public class MainFrame{
+>>>>>>> b33a26d8da12958bf8a30c762ad8203554b5a662
     public JFrame frame;
     private  JComboBox<String> productCombo;
     private JPanel categoryPanel;
@@ -95,8 +117,46 @@
         this.productPanel.setLayout(null);
 
         this.productTable = DBDataProvider.getAllProduct();
+<<<<<<< HEAD
         this.sp = new JScrollPane(this.productTable);
         this.sp.setBounds(0, 0, 700, 300);
+=======
+
+
+        // this is important, otherwise selection will not work
+        productTable.setCellSelectionEnabled(true);
+
+        ListSelectionModel cellSelectionModel = productTable.getSelectionModel();
+        cellSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        // ListSelectionListener only interface in java Swing to select from a table
+        cellSelectionModel.addListSelectionListener(new ListSelectionListener() {
+            // https://docs.oracle.com/javase/8/docs/api/javax/swing/event/ListSelectionListener.html#valueChanged-javax.swing.ListSelectionEvent-
+            //
+            // http://stackoverflow.com/questions/20327005/jtable-actionlistener-for-select-a-row
+
+            public void valueChanged(ListSelectionEvent e) {
+                String selectedData = null;
+
+                int[] selectedRow = productTable.getSelectedRows();
+                int[] selectedColumns = productTable.getSelectedColumns();
+
+                for (int i = 0; i < selectedRow.length; i++) {
+                    for (int j = 0; j < selectedColumns.length; j++) {
+                        selectedData = String.valueOf(productTable.getValueAt(selectedRow[i], selectedColumns[j]));
+                    }
+                }
+
+
+                System.out.println("Selected: " + String.valueOf(selectedData));
+            }
+
+        });
+
+
+        JScrollPane sp = new JScrollPane(this.productTable);
+        sp.setBounds(0, 0, 700, 300);
+>>>>>>> b33a26d8da12958bf8a30c762ad8203554b5a662
 
         this.productPanel.add(sp);
         this.frame.add(this.categoryPanel);
