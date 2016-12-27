@@ -3,6 +3,7 @@
    product selection will be done here
 */
 package view.client;
+import java.util.Vector;
 import javax.swing.*;
 import controller.*;
 import view.signUpForm.SignUp;
@@ -11,10 +12,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
 
+import db.DBDataProvider;
+
 public class MainFrame{
     JFrame frame;
     JComboBox<String> productCombo;
     JPanel categoryPanel;
+
+    JPanel productPanel;
+    JTable productTable;
+    
     JLabel heading;
     JLabel label;
     JLabel selected;
@@ -25,7 +32,7 @@ public class MainFrame{
     public MainFrame(){
         this.frame = new JFrame("E-Commerce Desktop Application");
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.frame.setBounds(300, 100, 800, 500);
+        this.frame.setBounds(300, 100, 750, 500);
         this.frame.setLayout(null);
 
         //JPanel for product category
@@ -69,7 +76,7 @@ public class MainFrame{
         this.productCombo.addItem("Movies");
         this.productCombo.addItem("Music");
 
-        this.categoryPanel.setBounds(150,10,400,200);
+        this.categoryPanel.setBounds(150,10,400,100);
         this.categoryPanel.add(this.adminBtn);
         this.categoryPanel.add(this.login);
         this.categoryPanel.add(this.register);
@@ -82,17 +89,44 @@ public class MainFrame{
         CategoryController categoryController = new CategoryController(this.productCombo,this.categoryPanel,this.selected);
         this.productCombo.addActionListener(categoryController);
 
-        this.frame.add(categoryPanel);
+        //show all product data------------------
+        this.productPanel = new JPanel();
+        this.productPanel.setBounds(10,150,700,300);
+        this.productPanel.setLayout(null);
+
+        // Vector<String> columnNames = new Vector<String>();
+        // columnNames.add("Name");
+        // columnNames.add("Category");
+        // columnNames.add("Price");
+        // columnNames.add("Quantity");
+        // Vector<Vector<String>> data = new Vector<Vector<String>>();
+
+        // for(int i=0;i<100;i++){
+        //     Vector<String> row = new Vector<String>();
+        //     row.add("iPhone");
+        //     row.add("Electronics");
+        //     row.add("100");
+        //     row.add("1000");
+        //     data.add(row);
+        // }
+
+        this.productTable = DBDataProvider.getAllProduct();
+        JScrollPane sp = new JScrollPane(this.productTable);
+        sp.setBounds(0, 0, 700, 300);
+
+        this.productPanel.add(sp);
+
+        this.frame.add(this.categoryPanel);
+        this.frame.add(this.productPanel);
         this.frame.setVisible(true);
+        this.frame.repaint();
     }
 
     private void registerBtnActionPerformed(ActionEvent evt) {
-
         SignUp sampleSignUp = new SignUp("Sign Up Form");
     }
 
     private void loginBtnActionPerformed(ActionEvent evt) {
-
         SignIn sampleSignIn = new SignIn("Sign In Form");
     }
 
