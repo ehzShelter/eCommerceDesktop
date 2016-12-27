@@ -15,9 +15,9 @@ public class ProductData {
         try {
             Connection conn = DBConnectionProvider.getDBConnection();
             insertNewProduct = conn.prepareStatement(
-                    "INSERT INTO product " +
-                    "(name, category, price, quantity)" +
-                    "VALUES (?, ?, ?, ?)");
+                "INSERT INTO product " +
+                "(name, category, price, quantity)" +
+                "VALUES (?, ?, ?, ?)");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -36,12 +36,12 @@ public class ProductData {
             int total_items = DBDataProvider.getCategoryItem(category);
             total_items++;
 
-                Connection connection = DBConnectionProvider.getDBConnection();
-                PreparedStatement statement = connection.prepareStatement("UPDATE category SET category.total_items = ? WHERE category.name = ?");
-                statement.setInt(1, total_items);
-                statement.setString(2, category);
-                int res = statement.executeUpdate();
-                System.out.println(res);
+            Connection connection = DBConnectionProvider.getDBConnection();
+            PreparedStatement statement = connection.prepareStatement("UPDATE category SET category.total_items = ? WHERE category.name = ?");
+            statement.setInt(1, total_items);
+            statement.setString(2, category);
+            int res = statement.executeUpdate();
+            
 
         // insert the new entry, returns # of rows updated
         } catch(SQLException e) {

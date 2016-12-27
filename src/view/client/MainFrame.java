@@ -2,6 +2,23 @@
    This is the main frame of the client side application
    product selection will be done here
    */
+<<<<<<< HEAD
+   package view.client;
+   import java.util.Vector;
+   import view.admin.AdminPanel;
+   import view.admin.AdminPanelActionListener;
+   import javax.swing.*;
+   import controller.*;
+   import view.signUpForm.SignUp;
+   import view.signInForm.SignIn;
+   import java.awt.event.ActionEvent;
+   import java.awt.event.ActionListener;
+   import java.awt.*;
+
+   import db.DBDataProvider;
+
+   public class MainFrame{
+=======
 package view.client;
 import java.util.Vector;
 import view.admin.AdminPanel;
@@ -21,6 +38,7 @@ import javax.swing.event.ListSelectionListener;
 import db.DBDataProvider;
 
 public class MainFrame{
+>>>>>>> b33a26d8da12958bf8a30c762ad8203554b5a662
     public JFrame frame;
     private  JComboBox<String> productCombo;
     private JPanel categoryPanel;
@@ -34,6 +52,8 @@ public class MainFrame{
     private JButton login;
     private JButton register;
     private JButton adminBtn;
+
+    private JScrollPane sp;
 
     public MainFrame(){
         this.frame = new JFrame("E-Commerce Desktop Application");
@@ -91,32 +111,16 @@ public class MainFrame{
         this.categoryPanel.add(this.productCombo);
         this.categoryPanel.add(this.selected);
 
-        //registering event handler of the JComboBox
-        CategoryController categoryController = new CategoryController(this.productCombo,this.categoryPanel,this.selected);
-        this.productCombo.addActionListener(categoryController);
-
-        //show all product data------------------
+         //show all product data------------------
         this.productPanel = new JPanel();
         this.productPanel.setBounds(10,150,700,300);
         this.productPanel.setLayout(null);
 
-        // Vector<String> columnNames = new Vector<String>();
-        // columnNames.add("Name");
-        // columnNames.add("Category");
-        // columnNames.add("Price");
-        // columnNames.add("Quantity");
-        // Vector<Vector<String>> data = new Vector<Vector<String>>();
-
-        // for(int i=0;i<100;i++){
-        //     Vector<String> row = new Vector<String>();
-        //     row.add("iPhone");
-        //     row.add("Electronics");
-        //     row.add("100");
-        //     row.add("1000");
-        //     data.add(row);
-        // }
-
         this.productTable = DBDataProvider.getAllProduct();
+<<<<<<< HEAD
+        this.sp = new JScrollPane(this.productTable);
+        this.sp.setBounds(0, 0, 700, 300);
+=======
 
 
         // this is important, otherwise selection will not work
@@ -152,13 +156,21 @@ public class MainFrame{
 
         JScrollPane sp = new JScrollPane(this.productTable);
         sp.setBounds(0, 0, 700, 300);
+>>>>>>> b33a26d8da12958bf8a30c762ad8203554b5a662
 
         this.productPanel.add(sp);
-
         this.frame.add(this.categoryPanel);
         this.frame.add(this.productPanel);
         this.frame.setVisible(true);
         this.frame.repaint();
+
+        //registering event handler of the JComboBox + JTable
+        CategoryController categoryController = new CategoryController(this.productCombo,this.categoryPanel,this.selected,this.productTable,this.productPanel,this.sp);
+        this.productCombo.addActionListener(categoryController);
+
+
+
+        
     }
 
     private void registerBtnActionPerformed(ActionEvent evt) {
