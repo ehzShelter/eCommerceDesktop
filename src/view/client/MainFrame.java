@@ -14,6 +14,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
 
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import db.DBDataProvider;
 
 public class MainFrame{
@@ -113,6 +117,39 @@ public class MainFrame{
         // }
 
         this.productTable = DBDataProvider.getAllProduct();
+
+
+        // this is important, otherwise selection will not work
+        productTable.setCellSelectionEnabled(true);
+
+        ListSelectionModel cellSelectionModel = productTable.getSelectionModel();
+        cellSelectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+        // ListSelectionListener only interface in java Swing to select from a table
+        cellSelectionModel.addListSelectionListener(new ListSelectionListener() {
+            // https://docs.oracle.com/javase/8/docs/api/javax/swing/event/ListSelectionListener.html#valueChanged-javax.swing.ListSelectionEvent-
+            //
+            // http://stackoverflow.com/questions/20327005/jtable-actionlistener-for-select-a-row
+
+            public void valueChanged(ListSelectionEvent e) {
+                String selectedData = null;
+
+                int[] selectedRow = productTable.getSelectedRows();
+                int[] selectedColumns = productTable.getSelectedColumns();
+
+                for (int i = 0; i < selectedRow.length; i++) {
+                    for (int j = 0; j < selectedColumns.length; j++) {
+                        selectedData = String.valueOf(productTable.getValueAt(selectedRow[i], selectedColumns[j]));
+                    }
+                }
+
+
+                System.out.println("Selected: " + String.valueOf(selectedData));
+            }
+
+        });
+
+
         JScrollPane sp = new JScrollPane(this.productTable);
         sp.setBounds(0, 0, 700, 300);
 

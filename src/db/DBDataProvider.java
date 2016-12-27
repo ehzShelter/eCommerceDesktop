@@ -23,7 +23,7 @@
           Connection conn = DBConnectionProvider.getDBConnection();
             //Create Statement to execute query
           PreparedStatement statement = conn.prepareStatement("SELECT total_items FROM ecommercejava.category WHERE category.name = ?");
-          statement.setString(1, name); 
+          statement.setString(1, name);
           ResultSet rs = statement.executeQuery();
 
           while (rs.next()) {
@@ -63,8 +63,8 @@
             v2.addElement(Integer.toString(res.getInt("quantity")));
             v3.add(v2);
           }
-          
-          
+
+
         }catch(Exception e){
           System.out.println("ERROR: " + e);
         }
