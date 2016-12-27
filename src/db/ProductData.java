@@ -9,7 +9,7 @@ public class ProductData {
 
     // manages connection
     private PreparedStatement insertNewProduct;
-    
+
     public ProductData() {
 
         try {
@@ -38,8 +38,8 @@ public class ProductData {
 
                 Connection connection = DBConnectionProvider.getDBConnection();
                 PreparedStatement statement = connection.prepareStatement("UPDATE category SET category.total_items = ? WHERE category.name = ?");
-                statement.setInt(1, total_items); 
-                statement.setString(2, category); 
+                statement.setInt(1, total_items);
+                statement.setString(2, category);
                 int res = statement.executeUpdate();
                 System.out.println(res);
 
