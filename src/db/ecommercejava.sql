@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Dec 26, 2016 at 11:08 PM
--- Server version: 5.7.16-0ubuntu0.16.04.1
--- PHP Version: 7.0.13-0ubuntu0.16.04.1
+-- Host: 127.0.0.1
+-- Generation Time: Dec 27, 2016 at 10:19 AM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -37,13 +37,13 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `total_items`) VALUES
-(1, 'Electronics', 10),
-(2, 'Books', 30),
-(3, 'Cars', 40),
-(4, 'Fashion', 50),
-(5, 'Sports', 60),
-(6, 'Movies', 70),
-(7, 'Music', 90);
+(1, 'Electronics', 0),
+(2, 'Books', 0),
+(3, 'Cars', 0),
+(4, 'Fashion', 0),
+(5, 'Sports', 0),
+(6, 'Movies', 0),
+(7, 'Music', 0);
 
 -- --------------------------------------------------------
 
