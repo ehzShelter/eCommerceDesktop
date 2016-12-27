@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2016 at 10:19 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.6.23
+-- Generation Time: Dec 27, 2016 at 06:51 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -37,13 +37,13 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `total_items`) VALUES
-(1, 'Electronics', 0),
+(1, 'Electronics', 2),
 (2, 'Books', 0),
-(3, 'Cars', 0),
+(3, 'Cars', 1),
 (4, 'Fashion', 0),
-(5, 'Sports', 0),
+(5, 'Sports', 2),
 (6, 'Movies', 0),
-(7, 'Music', 0);
+(7, 'Music', 1);
 
 -- --------------------------------------------------------
 
@@ -81,6 +81,18 @@ CREATE TABLE `product` (
   `price` double NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `category`, `price`, `quantity`) VALUES
+(1, 'Nike', 'Sports', 1000, 10),
+(2, 'iPhone', 'Electronics', 9000, 10),
+(3, 'addidas', 'Sports', 12, 12),
+(4, 'PC', 'Electronics', 1200, 121),
+(5, 'Metallica', 'Music', 1000, 1),
+(6, 'BMW', 'Cars', 1000, 11);
 
 -- --------------------------------------------------------
 
@@ -158,7 +170,7 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `user`
 --
