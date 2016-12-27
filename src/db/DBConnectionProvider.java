@@ -16,7 +16,7 @@
                 //STEP 1: Register JDBC driver
 					Class.forName("com.mysql.jdbc.Driver");
                 //STEP 3: Open a connection
-					conn = DriverManager.getConnection("jdbc:mysql://localhost/ecommercejava", "root", "root");
+					conn = DriverManager.getConnection("jdbc:mysql://localhost/ecommercejava", "root", "");
 				}catch(Exception ex){
 					System.out.println("Failed to get DBConn:: "+ex.getMessage());
 				}

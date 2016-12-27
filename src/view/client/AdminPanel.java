@@ -1,5 +1,9 @@
 package view.client;
 
+import db.ProductData;
+
+import javax.swing.*;
+import java.util.*;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -32,8 +36,10 @@ public class AdminPanel extends JFrame {
     private JTextField productPriceField;
     private JLabel quantity;
     private JTextField quantityField;
+    private ProductData newProduct;
 
     public AdminPanel() {
+    	newProduct = new ProductData();
 
         LabelAdminPanel = new JLabel();
         createLabel = new JLabel();
@@ -55,20 +61,12 @@ public class AdminPanel extends JFrame {
         createLabel.setText("Create New Product");
 
         productName.setText("Product Name");
-
         productCategory.setText("Product Category");
-
         productPrice.setText("Product Price");
-
         quantity.setText("Quantity");
-
-        adminOkBtn.setText("OK");
-
-        adminCancelBtn.setText("Cancel");
-
+        adminOkBtn.setText("ADD");
+        adminCancelBtn.setText("CLOSE");
         // productCategoryCombo.setModel(new DefaultComboBoxModel<>(new String[] { "--", "Electronics", "Books", "Cars" }));
-
-
         this.productCategoryCombo.addItem(" -- ");
         this.productCategoryCombo.addItem("Electronics");
         this.productCategoryCombo.addItem("Books");
@@ -77,7 +75,6 @@ public class AdminPanel extends JFrame {
         this.productCategoryCombo.addItem("Sports");
         this.productCategoryCombo.addItem("Movies");
         this.productCategoryCombo.addItem("Music");
-
 
         GroupLayout layout = new GroupLayout(getContentPane());
 
@@ -147,8 +144,41 @@ public class AdminPanel extends JFrame {
         this.setVisible(true);
         pack();
 
+        adminCancelBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                adminCancelBtnActionPerformed(evt);
+            }
+        });
 
+         adminOkBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                adminOkBtnActionPerformed(evt);
+            }
+        });
     }
 
+    private void adminCancelBtnActionPerformed(ActionEvent evt) {
+        	this.dispose();
+    }
+
+    private void adminOkBtnActionPerformed(ActionEvent evt){
+    	String name = this.productNameField.getText();
+    	// lastNameField.getText(), emailField.getText(), countryNameCombo.getSelectedItem().toString()
+    	String category = this.productCategoryCombo.getSelectedItem().toString();
+    	double price = Double.parseDouble(this.productPriceField.getText());
+    	int quantity = Integer.parseInt(this.quantityField.getText());	
+
+    	int result = newProduct.addProduct(name,category,price,quantity);
+    	if (result == 1) {
+           JOptionPane.showMessageDialog(this, "Product added!",
+                    "Product added", JOptionPane.PLAIN_MESSAGE);
+                    this.dispose();
+        }
+        else {
+           JOptionPane.showMessageDialog(this, "Person not added!",
+                    "Error", JOptionPane.PLAIN_MESSAGE);
+        }
+
+    }
 }
 

@@ -38,8 +38,5 @@ public class SignUpDocumentListener implements DocumentListener {
         else {
             eCommerceSignUpForm.signUpBtn.setEnabled(true);
         }
-
     }
-
-
 }

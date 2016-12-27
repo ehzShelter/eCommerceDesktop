@@ -1,8 +1,7 @@
 /*
    This is the main frame of the client side application
    product selection will be done here
-   */
-
+*/
 package view.client;
 import javax.swing.*;
 import controller.*;
@@ -11,7 +10,6 @@ import view.signInForm.SignIn;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
-
 
 public class MainFrame{
     JFrame frame;

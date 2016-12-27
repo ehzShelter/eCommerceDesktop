@@ -1,6 +1,5 @@
 package view.signUpForm;
 
-
 import view.signUpForm.SignUpDocumentListener;
 import db.UserData;
 
@@ -190,7 +189,6 @@ public class SignUp extends JFrame {
                             .addComponent(toggleOne, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                     .addGap(27, 27, 27))
                     );
-
         this.setVisible(true);
         pack();
 
@@ -203,13 +201,11 @@ public class SignUp extends JFrame {
         if (result == 1) {
             JOptionPane.showMessageDialog(this, "Person added!",
                     "Person added", JOptionPane.PLAIN_MESSAGE);
-
                     this.dispose();
         }
         else {
             JOptionPane.showMessageDialog(this, "Person not added!",
                     "Error", JOptionPane.PLAIN_MESSAGE);
-
         }
     }
 
